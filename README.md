@@ -36,9 +36,28 @@ Run the experiment:
 
     python3 scaledExperiment.py
 
-## Outputs
+## Analysis
 
-The script writes:
+After a run completes, copy the generated results into an `analysis/` folder:
+
+    analysis/task_metrics.csv
+    analysis/raw_traces.jsonl
+
+Then generate summary tables:
+
+    python analyze_results.py
+
+This writes:
+
+    tables/summary_by_model_method.csv
+    tables/summary_aggregate.csv
+    tables/summary_aggregate.tex
+
+To generate plots:
+
+    python plot_results.py
+
+This writes PNG and PDF figures into the `figures/` folder.
 
     results_scaled/raw_traces.jsonl
     results_scaled/task_metrics.csv
