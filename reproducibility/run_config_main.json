@@ -1,0 +1,29 @@
+{
+  "paper": "ToolChoiceConfusion: Causal Minimal Tool Filtering for Reliable LLM Agents",
+  "arxiv_id": "2606.06284",
+  "benchmark": {
+    "num_tasks": 102,
+    "num_tools": 100,
+    "domains": ["calendar", "email", "file/document"]
+  },
+  "methods": [
+    "all_tools",
+    "keyword_top_5",
+    "keyword_top_10",
+    "state_aware",
+    "full_causal_path",
+    "cmtf"
+  ],
+  "models": [
+    "amazon.nova-lite-v1:0",
+    "amazon.nova-pro-v1:0",
+    "anthropic.claude-3-haiku-20240307-v1:0",
+    "anthropic.claude-3-sonnet-20240229-v1:0"
+  ],
+  "max_steps": 6,
+  "runner": "code/scaledExperiment.py",
+  "analysis_script": "code/analyze_results.py",
+  "plot_script": "code/plot_results.py",
+  "raw_traces_publicly_released": false,
+  "notes": "Public repository contains curated reproducibility artifacts only. Raw traces and cloud logs are intentionally excluded."
+}
