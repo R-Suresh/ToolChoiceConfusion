@@ -7,17 +7,38 @@ __pycache__/
 venv/
 env/
 
-# Logs and generated outputs
+# Logs and generated/raw experiment outputs
 *.log
 results_scaled/
 archived_runs/
 *.jsonl
 *.csv
 
+# Allow curated reproducibility artifacts
+!data/
+!data/*.json
+
+!results/
+!results/*.csv
+
+!tables/
+!tables/*.csv
+!tables/*.tex
+
+!figures/
+!figures/*.png
+!figures/*.pdf
+
+!reproducibility/
+!reproducibility/*.json
+!reproducibility/*.md
+
 # AWS / secrets / local keys
+.aws/
+.env
+.env.*
 *.pem
 *.key
-.aws/
 ec2-trust-policy.json
 bedrock-ec2-policy.json
 
