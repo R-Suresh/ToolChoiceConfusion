@@ -4,6 +4,34 @@ This document describes the reproducibility package for **ToolChoiceConfusion: C
 
 The goal of this repository is to provide a clean, public, arXiv-compatible reproducibility package. It is not intended to be a dump of raw internal experiment artifacts.
 
+## Repository layout
+
+```text
+.
+├── code/
+│   ├── scaledExperiment.py
+│   ├── analyze_results.py
+│   └── plot_results.py
+├── data/
+│   ├── tasks_102.json
+│   └── tool_registry_100.json
+├── results/
+│   ├── task_metrics_main.csv
+│   ├── summary_aggregate.csv
+│   └── summary_by_model_method.csv
+├── figures/
+│   ├── success_by_method.png
+│   ├── wrong_tools_by_method.png
+│   ├── premature_actions_by_method.png
+│   ├── tools_per_step_by_method.png
+│   └── tokens_by_method.png
+├── tables/
+│   └── summary_aggregate.tex
+└── reproducibility/
+    ├── run_config_main.json
+    └── environment.md
+```
+
 ## What is included
 
 The repository includes:
@@ -33,6 +61,7 @@ Excluded artifacts include:
 * raw model output traces
 * local EC2 paths
 * hostnames
+* IP addresses
 * shell history
 * personal notes
 * review-submission PDFs
@@ -44,8 +73,10 @@ Excluded artifacts include:
 The main runner is:
 
 ```bash
-python3 scaledExperiment.py
+python3 code/scaledExperiment.py
 ```
+
+Run this command from the repository root.
 
 The runner evaluates six tool-exposure methods:
 
@@ -98,7 +129,9 @@ export AWS_DEFAULT_REGION=us-east-1
 export BEDROCK_MODEL_IDS="amazon.nova-lite-v1:0,amazon.nova-pro-v1:0,anthropic.claude-3-haiku-20240307-v1:0,anthropic.claude-3-sonnet-20240229-v1:0"
 ```
 
-## Reproducing tables
+Do not store AWS credentials, `.env` files, PEM files, or local cloud configuration in the repository.
+
+## Reproducing tables from a fresh run
 
 The analysis script expects:
 
@@ -111,10 +144,34 @@ To regenerate the summary tables from a local run:
 ```bash
 mkdir -p analysis
 cp results_scaled/task_metrics.csv analysis/task_metrics.csv
-python3 analyze_results.py
+python3 code/analyze_results.py
 ```
 
 This writes:
+
+```text
+tables/summary_by_model_method.csv
+tables/summary_aggregate.csv
+tables/summary_aggregate.tex
+```
+
+## Reproducing tables from the curated public metrics
+
+The curated public task-level metrics are provided at:
+
+```text
+results/task_metrics_main.csv
+```
+
+To regenerate tables from the public metrics:
+
+```bash
+mkdir -p analysis
+cp results/task_metrics_main.csv analysis/task_metrics.csv
+python3 code/analyze_results.py
+```
+
+This should regenerate:
 
 ```text
 tables/summary_by_model_method.csv
@@ -127,8 +184,10 @@ tables/summary_aggregate.tex
 After generating `tables/summary_aggregate.csv`, run:
 
 ```bash
-python3 plot_results.py
+python3 code/plot_results.py
 ```
+
+Run this command from the repository root.
 
 This writes figures into:
 
@@ -219,6 +278,83 @@ Riskier artifacts include:
 * shell history
 * notebook outputs with environment paths
 
+## Optional trace sanitization
+
+Raw traces are not required for the public arXiv reproducibility package. If a sanitized sample is ever released, remove sensitive or run-specific fields before committing.
+
+Fields to remove include:
+
+```text
+request_id
+requestId
+ResponseMetadata
+metadata
+headers
+prompt
+messages
+raw_prompt
+raw_response
+model_output
+completion
+trace
+local_path
+hostname
+ip_address
+account_id
+arn
+```
+
+Example sanitizer:
+
+```python
+import json
+from pathlib import Path
+
+DROP_KEYS = {
+    "request_id",
+    "requestId",
+    "ResponseMetadata",
+    "metadata",
+    "headers",
+    "prompt",
+    "messages",
+    "raw_prompt",
+    "raw_response",
+    "model_output",
+    "completion",
+    "trace",
+    "local_path",
+    "hostname",
+    "ip_address",
+    "account_id",
+    "arn",
+}
+
+def sanitize(obj):
+    if isinstance(obj, dict):
+        return {
+            k: sanitize(v)
+            for k, v in obj.items()
+            if k not in DROP_KEYS
+        }
+    if isinstance(obj, list):
+        return [sanitize(x) for x in obj]
+    return obj
+
+src = Path("results_scaled/raw_traces.jsonl")
+dst = Path("results/sanitized_trace_sample.jsonl")
+
+with src.open() as fin, dst.open("w") as fout:
+    for line in fin:
+        record = json.loads(line)
+        cleaned = sanitize(record)
+        fout.write(json.dumps(cleaned) + "\n")
+```
+
+Even after automated sanitization, manually inspect the output before committing.
+
+For the first public release, the recommended approach is to exclude traces entirely.
+
 ## Suggested validation checklist before release
 
 Before tagging a release, run:
@@ -238,7 +374,7 @@ git ls-files | grep -E '(\.pem|\.key|\.env|raw_traces|archived_runs|\.aws|\.log)
 Search tracked files for common secrets or metadata patterns:
 
 ```bash
-grep -RInE 'AKIA|ASIA|aws_secret|aws_access|session_token|requestId|RequestId|arn:aws|bedrock|/home/|/Users/|\.pem|BEGIN .*PRIVATE KEY' .
+grep -RInE 'AKIA|ASIA|aws_secret|aws_access|session_token|requestId|RequestId|arn:aws|/home/|/Users/|\.pem|BEGIN .*PRIVATE KEY' .
 ```
 
 If any match appears in a public artifact, inspect it manually before committing.
