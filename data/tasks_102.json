@@ -1,0 +1,2964 @@
+[
+  {
+    "task_id": "calendar_move_000",
+    "user_query": "Move my dentist appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "dentist appointment",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_000"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_001",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_001"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_002",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_002"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_003",
+    "user_query": "Move my 1:1 appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "1:1",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_003"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_004",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_004"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_005",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_005"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_006",
+    "user_query": "Move my doctor appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "doctor appointment",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_006"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_007",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_007"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_008",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_008"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_009",
+    "user_query": "Move my tax consult appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "tax consult",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_009"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_010",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_010"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_011",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_011"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_012",
+    "user_query": "Move my project sync appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "project sync",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_012"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_013",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_013"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_014",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_014"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_015",
+    "user_query": "Move my dentist appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "dentist appointment",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_015"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_016",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_016"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_017",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_017"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_018",
+    "user_query": "Move my 1:1 appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "1:1",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_018"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_019",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_019"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_020",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_020"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_021",
+    "user_query": "Move my doctor appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "doctor appointment",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_021"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_022",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_022"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_023",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_023"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_024",
+    "user_query": "Move my tax consult appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "tax consult",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_024"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_025",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_025"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_026",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_026"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_027",
+    "user_query": "Move my project sync appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "project sync",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_027"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_028",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_028"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_029",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_029"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_030",
+    "user_query": "Move my dentist appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "dentist appointment",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_030"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_summarize_031",
+    "user_query": "Find my planning meeting tomorrow and summarize the details.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "planning meeting"
+    },
+    "goal_state": [
+      "event_summary"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "read_event",
+      "summarize_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_sum_031"
+      },
+      "read_event": {
+        "event_details": "Meeting with agenda, attendees, and location."
+      },
+      "summarize_event": {
+        "event_summary": "Summary of meeting details."
+      }
+    }
+  },
+  {
+    "task_id": "calendar_invite_032",
+    "user_query": "Find tomorrow's hiring meeting and invite Alex.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "hiring meeting",
+      "attendee": "Alex"
+    },
+    "goal_state": [
+      "attendee_invited"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "invite_attendee"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_inv_032"
+      },
+      "invite_attendee": {
+        "attendee_invited": true
+      }
+    }
+  },
+  {
+    "task_id": "calendar_move_033",
+    "user_query": "Move my 1:1 appointment tomorrow to 3 PM.",
+    "initial_state": {
+      "date": "tomorrow",
+      "event_description": "1:1",
+      "new_time": "3 PM"
+    },
+    "goal_state": [
+      "event_updated"
+    ],
+    "gold_tool_chain": [
+      "search_events",
+      "update_event"
+    ],
+    "mock_outputs": {
+      "search_events": {
+        "event_id": "evt_033"
+      },
+      "read_event": {
+        "event_details": "Existing calendar event details."
+      },
+      "update_event": {
+        "event_updated": true
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_000",
+    "user_query": "Find the latest email from Sarah about the contract and create a draft reply.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract",
+      "reply_intent": "polite reply about contract"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_000"
+      },
+      "search_email_ids": {
+        "message_id": "msg_000"
+      },
+      "read_email": {
+        "email_body": "Email body about contract from Sarah."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about contract."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_001",
+    "user_query": "Find the email from Alex about invoice and summarize it.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_001"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_001"
+      },
+      "read_email": {
+        "email_body": "Detailed email about invoice."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of invoice email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_002",
+    "user_query": "Find Priya's email about paper review and extract the deadline.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_002"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_002"
+      },
+      "read_email": {
+        "email_body": "Please complete the paper review by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_003",
+    "user_query": "Find the latest email from Jordan about the meeting notes and create a draft reply.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes",
+      "reply_intent": "polite reply about meeting notes"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_003"
+      },
+      "search_email_ids": {
+        "message_id": "msg_003"
+      },
+      "read_email": {
+        "email_body": "Email body about meeting notes from Jordan."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about meeting notes."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_004",
+    "user_query": "Find the email from Sam about deadline and summarize it.",
+    "initial_state": {
+      "sender": "Sam",
+      "topic": "deadline"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_004"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_004"
+      },
+      "read_email": {
+        "email_body": "Detailed email about deadline."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of deadline email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_005",
+    "user_query": "Find Sarah's email about contract and extract the deadline.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_005"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_005"
+      },
+      "read_email": {
+        "email_body": "Please complete the contract by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_006",
+    "user_query": "Find the latest email from Alex about the invoice and create a draft reply.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice",
+      "reply_intent": "polite reply about invoice"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_006"
+      },
+      "search_email_ids": {
+        "message_id": "msg_006"
+      },
+      "read_email": {
+        "email_body": "Email body about invoice from Alex."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about invoice."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_007",
+    "user_query": "Find the email from Priya about paper review and summarize it.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_007"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_007"
+      },
+      "read_email": {
+        "email_body": "Detailed email about paper review."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of paper review email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_008",
+    "user_query": "Find Jordan's email about meeting notes and extract the deadline.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_008"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_008"
+      },
+      "read_email": {
+        "email_body": "Please complete the meeting notes by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_009",
+    "user_query": "Find the latest email from Sam about the deadline and create a draft reply.",
+    "initial_state": {
+      "sender": "Sam",
+      "topic": "deadline",
+      "reply_intent": "polite reply about deadline"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_009"
+      },
+      "search_email_ids": {
+        "message_id": "msg_009"
+      },
+      "read_email": {
+        "email_body": "Email body about deadline from Sam."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about deadline."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_010",
+    "user_query": "Find the email from Sarah about contract and summarize it.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_010"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_010"
+      },
+      "read_email": {
+        "email_body": "Detailed email about contract."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of contract email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_011",
+    "user_query": "Find Alex's email about invoice and extract the deadline.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_011"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_011"
+      },
+      "read_email": {
+        "email_body": "Please complete the invoice by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_012",
+    "user_query": "Find the latest email from Priya about the paper review and create a draft reply.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review",
+      "reply_intent": "polite reply about paper review"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_012"
+      },
+      "search_email_ids": {
+        "message_id": "msg_012"
+      },
+      "read_email": {
+        "email_body": "Email body about paper review from Priya."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about paper review."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_013",
+    "user_query": "Find the email from Jordan about meeting notes and summarize it.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_013"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_013"
+      },
+      "read_email": {
+        "email_body": "Detailed email about meeting notes."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of meeting notes email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_014",
+    "user_query": "Find Sam's email about deadline and extract the deadline.",
+    "initial_state": {
+      "sender": "Sam",
+      "topic": "deadline"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_014"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_014"
+      },
+      "read_email": {
+        "email_body": "Please complete the deadline by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_015",
+    "user_query": "Find the latest email from Sarah about the contract and create a draft reply.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract",
+      "reply_intent": "polite reply about contract"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_015"
+      },
+      "search_email_ids": {
+        "message_id": "msg_015"
+      },
+      "read_email": {
+        "email_body": "Email body about contract from Sarah."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about contract."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_016",
+    "user_query": "Find the email from Alex about invoice and summarize it.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_016"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_016"
+      },
+      "read_email": {
+        "email_body": "Detailed email about invoice."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of invoice email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_017",
+    "user_query": "Find Priya's email about paper review and extract the deadline.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_017"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_017"
+      },
+      "read_email": {
+        "email_body": "Please complete the paper review by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_018",
+    "user_query": "Find the latest email from Jordan about the meeting notes and create a draft reply.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes",
+      "reply_intent": "polite reply about meeting notes"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_018"
+      },
+      "search_email_ids": {
+        "message_id": "msg_018"
+      },
+      "read_email": {
+        "email_body": "Email body about meeting notes from Jordan."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about meeting notes."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_019",
+    "user_query": "Find the email from Sam about deadline and summarize it.",
+    "initial_state": {
+      "sender": "Sam",
+      "topic": "deadline"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_019"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_019"
+      },
+      "read_email": {
+        "email_body": "Detailed email about deadline."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of deadline email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_020",
+    "user_query": "Find Sarah's email about contract and extract the deadline.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_020"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_020"
+      },
+      "read_email": {
+        "email_body": "Please complete the contract by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_021",
+    "user_query": "Find the latest email from Alex about the invoice and create a draft reply.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice",
+      "reply_intent": "polite reply about invoice"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_021"
+      },
+      "search_email_ids": {
+        "message_id": "msg_021"
+      },
+      "read_email": {
+        "email_body": "Email body about invoice from Alex."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about invoice."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_022",
+    "user_query": "Find the email from Priya about paper review and summarize it.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_022"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_022"
+      },
+      "read_email": {
+        "email_body": "Detailed email about paper review."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of paper review email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_023",
+    "user_query": "Find Jordan's email about meeting notes and extract the deadline.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_023"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_023"
+      },
+      "read_email": {
+        "email_body": "Please complete the meeting notes by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_024",
+    "user_query": "Find the latest email from Sam about the deadline and create a draft reply.",
+    "initial_state": {
+      "sender": "Sam",
+      "topic": "deadline",
+      "reply_intent": "polite reply about deadline"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_024"
+      },
+      "search_email_ids": {
+        "message_id": "msg_024"
+      },
+      "read_email": {
+        "email_body": "Email body about deadline from Sam."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about deadline."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_025",
+    "user_query": "Find the email from Sarah about contract and summarize it.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_025"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_025"
+      },
+      "read_email": {
+        "email_body": "Detailed email about contract."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of contract email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_026",
+    "user_query": "Find Alex's email about invoice and extract the deadline.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_026"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_026"
+      },
+      "read_email": {
+        "email_body": "Please complete the invoice by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_027",
+    "user_query": "Find the latest email from Priya about the paper review and create a draft reply.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review",
+      "reply_intent": "polite reply about paper review"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_027"
+      },
+      "search_email_ids": {
+        "message_id": "msg_027"
+      },
+      "read_email": {
+        "email_body": "Email body about paper review from Priya."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about paper review."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_028",
+    "user_query": "Find the email from Jordan about meeting notes and summarize it.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_028"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_028"
+      },
+      "read_email": {
+        "email_body": "Detailed email about meeting notes."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of meeting notes email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_029",
+    "user_query": "Find Sam's email about deadline and extract the deadline.",
+    "initial_state": {
+      "sender": "Sam",
+      "topic": "deadline"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_029"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_029"
+      },
+      "read_email": {
+        "email_body": "Please complete the deadline by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_030",
+    "user_query": "Find the latest email from Sarah about the contract and create a draft reply.",
+    "initial_state": {
+      "sender": "Sarah",
+      "topic": "contract",
+      "reply_intent": "polite reply about contract"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_030"
+      },
+      "search_email_ids": {
+        "message_id": "msg_030"
+      },
+      "read_email": {
+        "email_body": "Email body about contract from Sarah."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about contract."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "email_summarize_031",
+    "user_query": "Find the email from Alex about invoice and summarize it.",
+    "initial_state": {
+      "sender": "Alex",
+      "topic": "invoice"
+    },
+    "goal_state": [
+      "email_summary"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "summarize_email"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_sum_031"
+      },
+      "search_email_ids": {
+        "message_id": "msg_sum_031"
+      },
+      "read_email": {
+        "email_body": "Detailed email about invoice."
+      },
+      "summarize_email": {
+        "email_summary": "Summary of invoice email."
+      }
+    }
+  },
+  {
+    "task_id": "email_deadline_032",
+    "user_query": "Find Priya's email about paper review and extract the deadline.",
+    "initial_state": {
+      "sender": "Priya",
+      "topic": "paper review"
+    },
+    "goal_state": [
+      "deadline"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "extract_email_deadline"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_deadline_032"
+      },
+      "search_email_ids": {
+        "message_id": "msg_deadline_032"
+      },
+      "read_email": {
+        "email_body": "Please complete the paper review by Friday."
+      },
+      "extract_email_deadline": {
+        "deadline": "Friday"
+      }
+    }
+  },
+  {
+    "task_id": "email_draft_033",
+    "user_query": "Find the latest email from Jordan about the meeting notes and create a draft reply.",
+    "initial_state": {
+      "sender": "Jordan",
+      "topic": "meeting notes",
+      "reply_intent": "polite reply about meeting notes"
+    },
+    "goal_state": [
+      "draft_created"
+    ],
+    "gold_tool_chain": [
+      "search_emails",
+      "read_email",
+      "create_draft"
+    ],
+    "mock_outputs": {
+      "search_emails": {
+        "message_id": "msg_033"
+      },
+      "search_email_ids": {
+        "message_id": "msg_033"
+      },
+      "read_email": {
+        "email_body": "Email body about meeting notes from Jordan."
+      },
+      "read_email_thread": {
+        "email_thread": "Thread context about meeting notes."
+      },
+      "create_draft": {
+        "draft_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_section_000",
+    "user_query": "Find my AI paper draft and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "AI paper draft",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_000"
+      },
+      "find_latest_file": {
+        "file_id": "file_000"
+      },
+      "read_file": {
+        "file_text": "Document text for AI paper draft. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_001",
+    "user_query": "Find my latest home inspection report and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "home inspection report"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_001"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_001"
+      },
+      "read_file": {
+        "file_text": "Full document text for home inspection report."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of home inspection report."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_002",
+    "user_query": "Find my tax document and extract the risks section.",
+    "initial_state": {
+      "file_topic": "tax document",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_002"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_002"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for tax document."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_003",
+    "user_query": "Find my project proposal and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "project proposal",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_003"
+      },
+      "find_latest_file": {
+        "file_id": "file_003"
+      },
+      "read_file": {
+        "file_text": "Document text for project proposal. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_004",
+    "user_query": "Find my latest meeting transcript and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "meeting transcript"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_004"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_004"
+      },
+      "read_file": {
+        "file_text": "Full document text for meeting transcript."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of meeting transcript."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_005",
+    "user_query": "Find my AI paper draft and extract the risks section.",
+    "initial_state": {
+      "file_topic": "AI paper draft",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_005"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_005"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for AI paper draft."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_006",
+    "user_query": "Find my home inspection report and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "home inspection report",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_006"
+      },
+      "find_latest_file": {
+        "file_id": "file_006"
+      },
+      "read_file": {
+        "file_text": "Document text for home inspection report. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_007",
+    "user_query": "Find my latest tax document and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "tax document"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_007"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_007"
+      },
+      "read_file": {
+        "file_text": "Full document text for tax document."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of tax document."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_008",
+    "user_query": "Find my project proposal and extract the risks section.",
+    "initial_state": {
+      "file_topic": "project proposal",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_008"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_008"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for project proposal."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_009",
+    "user_query": "Find my meeting transcript and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "meeting transcript",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_009"
+      },
+      "find_latest_file": {
+        "file_id": "file_009"
+      },
+      "read_file": {
+        "file_text": "Document text for meeting transcript. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_010",
+    "user_query": "Find my latest AI paper draft and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "AI paper draft"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_010"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_010"
+      },
+      "read_file": {
+        "file_text": "Full document text for AI paper draft."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of AI paper draft."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_011",
+    "user_query": "Find my home inspection report and extract the risks section.",
+    "initial_state": {
+      "file_topic": "home inspection report",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_011"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_011"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for home inspection report."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_012",
+    "user_query": "Find my tax document and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "tax document",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_012"
+      },
+      "find_latest_file": {
+        "file_id": "file_012"
+      },
+      "read_file": {
+        "file_text": "Document text for tax document. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_013",
+    "user_query": "Find my latest project proposal and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "project proposal"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_013"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_013"
+      },
+      "read_file": {
+        "file_text": "Full document text for project proposal."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of project proposal."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_014",
+    "user_query": "Find my meeting transcript and extract the risks section.",
+    "initial_state": {
+      "file_topic": "meeting transcript",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_014"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_014"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for meeting transcript."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_015",
+    "user_query": "Find my AI paper draft and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "AI paper draft",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_015"
+      },
+      "find_latest_file": {
+        "file_id": "file_015"
+      },
+      "read_file": {
+        "file_text": "Document text for AI paper draft. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_016",
+    "user_query": "Find my latest home inspection report and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "home inspection report"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_016"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_016"
+      },
+      "read_file": {
+        "file_text": "Full document text for home inspection report."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of home inspection report."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_017",
+    "user_query": "Find my tax document and extract the risks section.",
+    "initial_state": {
+      "file_topic": "tax document",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_017"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_017"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for tax document."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_018",
+    "user_query": "Find my project proposal and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "project proposal",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_018"
+      },
+      "find_latest_file": {
+        "file_id": "file_018"
+      },
+      "read_file": {
+        "file_text": "Document text for project proposal. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_019",
+    "user_query": "Find my latest meeting transcript and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "meeting transcript"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_019"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_019"
+      },
+      "read_file": {
+        "file_text": "Full document text for meeting transcript."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of meeting transcript."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_020",
+    "user_query": "Find my AI paper draft and extract the risks section.",
+    "initial_state": {
+      "file_topic": "AI paper draft",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_020"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_020"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for AI paper draft."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_021",
+    "user_query": "Find my home inspection report and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "home inspection report",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_021"
+      },
+      "find_latest_file": {
+        "file_id": "file_021"
+      },
+      "read_file": {
+        "file_text": "Document text for home inspection report. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_022",
+    "user_query": "Find my latest tax document and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "tax document"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_022"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_022"
+      },
+      "read_file": {
+        "file_text": "Full document text for tax document."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of tax document."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_023",
+    "user_query": "Find my project proposal and extract the risks section.",
+    "initial_state": {
+      "file_topic": "project proposal",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_023"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_023"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for project proposal."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_024",
+    "user_query": "Find my meeting transcript and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "meeting transcript",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_024"
+      },
+      "find_latest_file": {
+        "file_id": "file_024"
+      },
+      "read_file": {
+        "file_text": "Document text for meeting transcript. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_025",
+    "user_query": "Find my latest AI paper draft and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "AI paper draft"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_025"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_025"
+      },
+      "read_file": {
+        "file_text": "Full document text for AI paper draft."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of AI paper draft."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_026",
+    "user_query": "Find my home inspection report and extract the risks section.",
+    "initial_state": {
+      "file_topic": "home inspection report",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_026"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_026"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for home inspection report."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_027",
+    "user_query": "Find my tax document and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "tax document",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_027"
+      },
+      "find_latest_file": {
+        "file_id": "file_027"
+      },
+      "read_file": {
+        "file_text": "Document text for tax document. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_028",
+    "user_query": "Find my latest project proposal and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "project proposal"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_028"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_028"
+      },
+      "read_file": {
+        "file_text": "Full document text for project proposal."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of project proposal."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_029",
+    "user_query": "Find my meeting transcript and extract the risks section.",
+    "initial_state": {
+      "file_topic": "meeting transcript",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_029"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_029"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for meeting transcript."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_030",
+    "user_query": "Find my AI paper draft and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "AI paper draft",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_030"
+      },
+      "find_latest_file": {
+        "file_id": "file_030"
+      },
+      "read_file": {
+        "file_text": "Document text for AI paper draft. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  },
+  {
+    "task_id": "file_summary_031",
+    "user_query": "Find my latest home inspection report and summarize the whole document.",
+    "initial_state": {
+      "file_topic": "home inspection report"
+    },
+    "goal_state": [
+      "document_summary"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_document"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_sum_031"
+      },
+      "find_latest_file": {
+        "file_id": "file_sum_031"
+      },
+      "read_file": {
+        "file_text": "Full document text for home inspection report."
+      },
+      "summarize_document": {
+        "document_summary": "Summary of home inspection report."
+      }
+    }
+  },
+  {
+    "task_id": "file_extract_032",
+    "user_query": "Find my tax document and extract the risks section.",
+    "initial_state": {
+      "file_topic": "tax document",
+      "section_name": "risks"
+    },
+    "goal_state": [
+      "section_text"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "extract_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_extract_032"
+      },
+      "find_latest_file": {
+        "file_id": "file_extract_032"
+      },
+      "read_file": {
+        "file_text": "Document with risks section for tax document."
+      },
+      "extract_section": {
+        "section_text": "Risks section text."
+      }
+    }
+  },
+  {
+    "task_id": "file_section_033",
+    "user_query": "Find my project proposal and summarize the limitations section.",
+    "initial_state": {
+      "file_topic": "project proposal",
+      "section_name": "limitations"
+    },
+    "goal_state": [
+      "summary_created"
+    ],
+    "gold_tool_chain": [
+      "search_files",
+      "read_file",
+      "summarize_section"
+    ],
+    "mock_outputs": {
+      "search_files": {
+        "file_id": "file_033"
+      },
+      "find_latest_file": {
+        "file_id": "file_033"
+      },
+      "read_file": {
+        "file_text": "Document text for project proposal. Limitations: synthetic setup."
+      },
+      "summarize_section": {
+        "summary_created": true
+      }
+    }
+  }
+]

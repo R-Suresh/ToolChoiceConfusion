@@ -1,0 +1,2624 @@
+[
+  {
+    "name": "search_events",
+    "description": "Search calendar events by date, title, attendee, or description.",
+    "domain": "calendar",
+    "action_type": "search",
+    "requires": [
+      "date",
+      "event_description"
+    ],
+    "produces": [
+      "event_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "event_description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "event_description"
+      ]
+    }
+  },
+  {
+    "name": "read_event",
+    "description": "Read details for a known calendar event using an event ID.",
+    "domain": "calendar",
+    "action_type": "read",
+    "requires": [
+      "event_id"
+    ],
+    "produces": [
+      "event_details"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id"
+      ]
+    }
+  },
+  {
+    "name": "update_event",
+    "description": "Update an existing calendar event such as changing its time.",
+    "domain": "calendar",
+    "action_type": "write",
+    "requires": [
+      "event_id",
+      "new_time"
+    ],
+    "produces": [
+      "event_updated"
+    ],
+    "risk": "high",
+    "cost": 2,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "new_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "new_time"
+      ]
+    }
+  },
+  {
+    "name": "create_event",
+    "description": "Create a new calendar event.",
+    "domain": "calendar",
+    "action_type": "write",
+    "requires": [
+      "date",
+      "new_time",
+      "event_description"
+    ],
+    "produces": [
+      "event_created"
+    ],
+    "risk": "medium",
+    "cost": 2,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "new_time": {
+          "type": "string"
+        },
+        "event_description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "new_time",
+        "event_description"
+      ]
+    }
+  },
+  {
+    "name": "delete_event",
+    "description": "Delete an existing calendar event.",
+    "domain": "calendar",
+    "action_type": "delete",
+    "requires": [
+      "event_id"
+    ],
+    "produces": [
+      "event_deleted"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id"
+      ]
+    }
+  },
+  {
+    "name": "invite_attendee",
+    "description": "Invite an attendee to a known calendar event.",
+    "domain": "calendar",
+    "action_type": "write",
+    "requires": [
+      "event_id",
+      "attendee"
+    ],
+    "produces": [
+      "attendee_invited"
+    ],
+    "risk": "medium",
+    "cost": 2,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string"
+        },
+        "attendee": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "attendee"
+      ]
+    }
+  },
+  {
+    "name": "check_availability",
+    "description": "Check calendar availability for a date and time.",
+    "domain": "calendar",
+    "action_type": "search",
+    "requires": [
+      "date",
+      "new_time"
+    ],
+    "produces": [
+      "availability_status"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "new_time": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "new_time"
+      ]
+    }
+  },
+  {
+    "name": "list_events",
+    "description": "List calendar events for a date.",
+    "domain": "calendar",
+    "action_type": "search",
+    "requires": [
+      "date"
+    ],
+    "produces": [
+      "event_list"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "date"
+      ]
+    }
+  },
+  {
+    "name": "find_event_by_attendee",
+    "description": "Find calendar events with a specific attendee.",
+    "domain": "calendar",
+    "action_type": "search",
+    "requires": [
+      "attendee"
+    ],
+    "produces": [
+      "event_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "attendee": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "attendee"
+      ]
+    }
+  },
+  {
+    "name": "summarize_event",
+    "description": "Summarize details of a known event.",
+    "domain": "calendar",
+    "action_type": "summarize",
+    "requires": [
+      "event_details"
+    ],
+    "produces": [
+      "event_summary"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "event_details": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_details"
+      ]
+    }
+  },
+  {
+    "name": "search_emails",
+    "description": "Search email messages by sender, subject, keyword, label, or date range.",
+    "domain": "email",
+    "action_type": "search",
+    "requires": [
+      "sender",
+      "topic"
+    ],
+    "produces": [
+      "message_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "sender": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sender",
+        "topic"
+      ]
+    }
+  },
+  {
+    "name": "search_email_ids",
+    "description": "Search emails and return only matching message IDs.",
+    "domain": "email",
+    "action_type": "search",
+    "requires": [
+      "sender",
+      "topic"
+    ],
+    "produces": [
+      "message_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "sender": {
+          "type": "string"
+        },
+        "topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sender",
+        "topic"
+      ]
+    }
+  },
+  {
+    "name": "read_email",
+    "description": "Read the content of a known email message using a message ID.",
+    "domain": "email",
+    "action_type": "read",
+    "requires": [
+      "message_id"
+    ],
+    "produces": [
+      "email_body"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id"
+      ]
+    }
+  },
+  {
+    "name": "read_email_thread",
+    "description": "Read the full email conversation thread for a known message ID.",
+    "domain": "email",
+    "action_type": "read",
+    "requires": [
+      "message_id"
+    ],
+    "produces": [
+      "email_thread"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id"
+      ]
+    }
+  },
+  {
+    "name": "summarize_email",
+    "description": "Summarize the content of an email body.",
+    "domain": "email",
+    "action_type": "summarize",
+    "requires": [
+      "email_body"
+    ],
+    "produces": [
+      "email_summary"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "email_body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email_body"
+      ]
+    }
+  },
+  {
+    "name": "extract_email_deadline",
+    "description": "Extract a deadline from an email body.",
+    "domain": "email",
+    "action_type": "extract",
+    "requires": [
+      "email_body"
+    ],
+    "produces": [
+      "deadline"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "email_body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email_body"
+      ]
+    }
+  },
+  {
+    "name": "create_draft",
+    "description": "Create an email draft. Does not send the email.",
+    "domain": "email",
+    "action_type": "write",
+    "requires": [
+      "email_body",
+      "reply_intent"
+    ],
+    "produces": [
+      "draft_created"
+    ],
+    "risk": "medium",
+    "cost": 2,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "email_body": {
+          "type": "string"
+        },
+        "reply_intent": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email_body",
+        "reply_intent"
+      ]
+    }
+  },
+  {
+    "name": "send_email",
+    "description": "Send an email immediately to a recipient.",
+    "domain": "email",
+    "action_type": "send",
+    "requires": [
+      "recipient",
+      "subject",
+      "body"
+    ],
+    "produces": [
+      "email_sent"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "recipient": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "recipient",
+        "subject",
+        "body"
+      ]
+    }
+  },
+  {
+    "name": "forward_email",
+    "description": "Forward a known email to another recipient.",
+    "domain": "email",
+    "action_type": "send",
+    "requires": [
+      "message_id",
+      "recipient"
+    ],
+    "produces": [
+      "email_forwarded"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string"
+        },
+        "recipient": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id",
+        "recipient"
+      ]
+    }
+  },
+  {
+    "name": "archive_email",
+    "description": "Archive an email message.",
+    "domain": "email",
+    "action_type": "write",
+    "requires": [
+      "message_id"
+    ],
+    "produces": [
+      "email_archived"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id"
+      ]
+    }
+  },
+  {
+    "name": "delete_email",
+    "description": "Delete an email message.",
+    "domain": "email",
+    "action_type": "delete",
+    "requires": [
+      "message_id"
+    ],
+    "produces": [
+      "email_deleted"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id"
+      ]
+    }
+  },
+  {
+    "name": "label_email",
+    "description": "Apply a label to a known email message.",
+    "domain": "email",
+    "action_type": "write",
+    "requires": [
+      "message_id",
+      "label"
+    ],
+    "produces": [
+      "email_labeled"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "message_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message_id",
+        "label"
+      ]
+    }
+  },
+  {
+    "name": "list_email_labels",
+    "description": "List available email labels.",
+    "domain": "email",
+    "action_type": "search",
+    "requires": [],
+    "produces": [
+      "email_labels"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "search_contacts",
+    "description": "Search contacts by person name.",
+    "domain": "contacts",
+    "action_type": "search",
+    "requires": [
+      "person_name"
+    ],
+    "produces": [
+      "contact_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "person_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "person_name"
+      ]
+    }
+  },
+  {
+    "name": "search_files",
+    "description": "Search user files by title, topic, recency, or file type.",
+    "domain": "files",
+    "action_type": "search",
+    "requires": [
+      "file_topic"
+    ],
+    "produces": [
+      "file_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_topic"
+      ]
+    }
+  },
+  {
+    "name": "read_file",
+    "description": "Read the contents of a known file using a file ID.",
+    "domain": "files",
+    "action_type": "read",
+    "requires": [
+      "file_id"
+    ],
+    "produces": [
+      "file_text"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_id"
+      ]
+    }
+  },
+  {
+    "name": "summarize_section",
+    "description": "Summarize a specific section of a document.",
+    "domain": "files",
+    "action_type": "summarize",
+    "requires": [
+      "file_text",
+      "section_name"
+    ],
+    "produces": [
+      "summary_created"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_text": {
+          "type": "string"
+        },
+        "section_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_text",
+        "section_name"
+      ]
+    }
+  },
+  {
+    "name": "summarize_document",
+    "description": "Summarize an entire document.",
+    "domain": "files",
+    "action_type": "summarize",
+    "requires": [
+      "file_text"
+    ],
+    "produces": [
+      "document_summary"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_text"
+      ]
+    }
+  },
+  {
+    "name": "extract_section",
+    "description": "Extract a named section from a document.",
+    "domain": "files",
+    "action_type": "extract",
+    "requires": [
+      "file_text",
+      "section_name"
+    ],
+    "produces": [
+      "section_text"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_text": {
+          "type": "string"
+        },
+        "section_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_text",
+        "section_name"
+      ]
+    }
+  },
+  {
+    "name": "rename_file",
+    "description": "Rename a known file.",
+    "domain": "files",
+    "action_type": "write",
+    "requires": [
+      "file_id",
+      "new_filename"
+    ],
+    "produces": [
+      "file_renamed"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string"
+        },
+        "new_filename": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_id",
+        "new_filename"
+      ]
+    }
+  },
+  {
+    "name": "share_file",
+    "description": "Share a known file with another person.",
+    "domain": "files",
+    "action_type": "send",
+    "requires": [
+      "file_id",
+      "recipient"
+    ],
+    "produces": [
+      "file_shared"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string"
+        },
+        "recipient": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_id",
+        "recipient"
+      ]
+    }
+  },
+  {
+    "name": "delete_file",
+    "description": "Delete a known file.",
+    "domain": "files",
+    "action_type": "delete",
+    "requires": [
+      "file_id"
+    ],
+    "produces": [
+      "file_deleted"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_id"
+      ]
+    }
+  },
+  {
+    "name": "create_doc",
+    "description": "Create a new document.",
+    "domain": "files",
+    "action_type": "write",
+    "requires": [
+      "document_title",
+      "document_body"
+    ],
+    "produces": [
+      "document_created"
+    ],
+    "risk": "medium",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "document_title": {
+          "type": "string"
+        },
+        "document_body": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_title",
+        "document_body"
+      ]
+    }
+  },
+  {
+    "name": "find_latest_file",
+    "description": "Find the latest file matching a topic.",
+    "domain": "files",
+    "action_type": "search",
+    "requires": [
+      "file_topic"
+    ],
+    "produces": [
+      "file_id"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "file_topic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "file_topic"
+      ]
+    }
+  },
+  {
+    "name": "search_web",
+    "description": "Search the public web for information.",
+    "domain": "web",
+    "action_type": "search",
+    "requires": [
+      "web_query"
+    ],
+    "produces": [
+      "search_results"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "web_query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "web_query"
+      ]
+    }
+  },
+  {
+    "name": "open_url",
+    "description": "Open a URL and return page text.",
+    "domain": "web",
+    "action_type": "read",
+    "requires": [
+      "url"
+    ],
+    "produces": [
+      "page_text"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url"
+      ]
+    }
+  },
+  {
+    "name": "summarize_page",
+    "description": "Summarize webpage text.",
+    "domain": "web",
+    "action_type": "summarize",
+    "requires": [
+      "page_text"
+    ],
+    "produces": [
+      "page_summary"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page_text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "page_text"
+      ]
+    }
+  },
+  {
+    "name": "calculate",
+    "description": "Perform a calculation.",
+    "domain": "math",
+    "action_type": "calculate",
+    "requires": [
+      "expression"
+    ],
+    "produces": [
+      "calculation_result"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "expression"
+      ]
+    }
+  },
+  {
+    "name": "convert_currency",
+    "description": "Convert one currency amount to another.",
+    "domain": "finance",
+    "action_type": "calculate",
+    "requires": [
+      "amount",
+      "from_currency",
+      "to_currency"
+    ],
+    "produces": [
+      "converted_amount"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "from_currency": {
+          "type": "string"
+        },
+        "to_currency": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "amount",
+        "from_currency",
+        "to_currency"
+      ]
+    }
+  },
+  {
+    "name": "lookup_stock",
+    "description": "Look up a stock price.",
+    "domain": "finance",
+    "action_type": "search",
+    "requires": [
+      "ticker"
+    ],
+    "produces": [
+      "stock_price"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "ticker": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ticker"
+      ]
+    }
+  },
+  {
+    "name": "compute_mortgage",
+    "description": "Calculate estimated mortgage payment.",
+    "domain": "finance",
+    "action_type": "calculate",
+    "requires": [
+      "home_price",
+      "down_payment",
+      "rate"
+    ],
+    "produces": [
+      "mortgage_payment"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "home_price": {
+          "type": "string"
+        },
+        "down_payment": {
+          "type": "string"
+        },
+        "rate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "home_price",
+        "down_payment",
+        "rate"
+      ]
+    }
+  },
+  {
+    "name": "run_tests",
+    "description": "Run code tests.",
+    "domain": "code",
+    "action_type": "execute",
+    "requires": [
+      "repo_id"
+    ],
+    "produces": [
+      "test_output"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "repo_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repo_id"
+      ]
+    }
+  },
+  {
+    "name": "inspect_error",
+    "description": "Inspect a code error message.",
+    "domain": "code",
+    "action_type": "read",
+    "requires": [
+      "test_output"
+    ],
+    "produces": [
+      "error_details"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "test_output": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "test_output"
+      ]
+    }
+  },
+  {
+    "name": "patch_file",
+    "description": "Patch a code file.",
+    "domain": "code",
+    "action_type": "write",
+    "requires": [
+      "error_details"
+    ],
+    "produces": [
+      "patch_applied"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "error_details": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_details"
+      ]
+    }
+  },
+  {
+    "name": "run_linter",
+    "description": "Run a code linter.",
+    "domain": "code",
+    "action_type": "execute",
+    "requires": [
+      "repo_id"
+    ],
+    "produces": [
+      "lint_output"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "repo_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repo_id"
+      ]
+    }
+  },
+  {
+    "name": "search_flights",
+    "description": "Search flights for a route and date.",
+    "domain": "travel",
+    "action_type": "search",
+    "requires": [
+      "origin",
+      "destination",
+      "date"
+    ],
+    "produces": [
+      "flight_options"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "date"
+      ]
+    }
+  },
+  {
+    "name": "search_hotels",
+    "description": "Search hotels for a city and date.",
+    "domain": "travel",
+    "action_type": "search",
+    "requires": [
+      "city",
+      "date"
+    ],
+    "produces": [
+      "hotel_options"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "city",
+        "date"
+      ]
+    }
+  },
+  {
+    "name": "create_itinerary",
+    "description": "Create a travel itinerary.",
+    "domain": "travel",
+    "action_type": "write",
+    "requires": [
+      "flight_options",
+      "hotel_options"
+    ],
+    "produces": [
+      "itinerary_created"
+    ],
+    "risk": "medium",
+    "cost": 2,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "flight_options": {
+          "type": "string"
+        },
+        "hotel_options": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "flight_options",
+        "hotel_options"
+      ]
+    }
+  },
+  {
+    "name": "crm_search_distractor_000",
+    "description": "Search synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "search",
+    "requires": [
+      "crm_input_000"
+    ],
+    "produces": [
+      "crm_output_000"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_000": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_000"
+      ]
+    }
+  },
+  {
+    "name": "analytics_read_distractor_001",
+    "description": "Read synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "read",
+    "requires": [
+      "analytics_input_001"
+    ],
+    "produces": [
+      "analytics_output_001"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_001": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_001"
+      ]
+    }
+  },
+  {
+    "name": "payments_write_distractor_002",
+    "description": "Write synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "write",
+    "requires": [
+      "payments_input_002"
+    ],
+    "produces": [
+      "payments_output_002"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_002": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_002"
+      ]
+    }
+  },
+  {
+    "name": "maps_delete_distractor_003",
+    "description": "Delete synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "delete",
+    "requires": [
+      "maps_input_003"
+    ],
+    "produces": [
+      "maps_output_003"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_003": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_003"
+      ]
+    }
+  },
+  {
+    "name": "shopping_summarize_distractor_004",
+    "description": "Summarize synthetic shopping records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "shopping",
+    "action_type": "summarize",
+    "requires": [
+      "shopping_input_004"
+    ],
+    "produces": [
+      "shopping_output_004"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "shopping_input_004": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shopping_input_004"
+      ]
+    }
+  },
+  {
+    "name": "support_extract_distractor_005",
+    "description": "Extract synthetic support records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "support",
+    "action_type": "extract",
+    "requires": [
+      "support_input_005"
+    ],
+    "produces": [
+      "support_output_005"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "support_input_005": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "support_input_005"
+      ]
+    }
+  },
+  {
+    "name": "security_search_distractor_006",
+    "description": "Search synthetic security records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "security",
+    "action_type": "search",
+    "requires": [
+      "security_input_006"
+    ],
+    "produces": [
+      "security_output_006"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "security_input_006": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "security_input_006"
+      ]
+    }
+  },
+  {
+    "name": "database_read_distractor_007",
+    "description": "Read synthetic database records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "database",
+    "action_type": "read",
+    "requires": [
+      "database_input_007"
+    ],
+    "produces": [
+      "database_output_007"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "database_input_007": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_input_007"
+      ]
+    }
+  },
+  {
+    "name": "crm_write_distractor_008",
+    "description": "Write synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "write",
+    "requires": [
+      "crm_input_008"
+    ],
+    "produces": [
+      "crm_output_008"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_008": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_008"
+      ]
+    }
+  },
+  {
+    "name": "analytics_delete_distractor_009",
+    "description": "Delete synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "delete",
+    "requires": [
+      "analytics_input_009"
+    ],
+    "produces": [
+      "analytics_output_009"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_009": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_009"
+      ]
+    }
+  },
+  {
+    "name": "payments_summarize_distractor_010",
+    "description": "Summarize synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "summarize",
+    "requires": [
+      "payments_input_010"
+    ],
+    "produces": [
+      "payments_output_010"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_010": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_010"
+      ]
+    }
+  },
+  {
+    "name": "maps_extract_distractor_011",
+    "description": "Extract synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "extract",
+    "requires": [
+      "maps_input_011"
+    ],
+    "produces": [
+      "maps_output_011"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_011": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_011"
+      ]
+    }
+  },
+  {
+    "name": "shopping_search_distractor_012",
+    "description": "Search synthetic shopping records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "shopping",
+    "action_type": "search",
+    "requires": [
+      "shopping_input_012"
+    ],
+    "produces": [
+      "shopping_output_012"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "shopping_input_012": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shopping_input_012"
+      ]
+    }
+  },
+  {
+    "name": "support_read_distractor_013",
+    "description": "Read synthetic support records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "support",
+    "action_type": "read",
+    "requires": [
+      "support_input_013"
+    ],
+    "produces": [
+      "support_output_013"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "support_input_013": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "support_input_013"
+      ]
+    }
+  },
+  {
+    "name": "security_write_distractor_014",
+    "description": "Write synthetic security records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "security",
+    "action_type": "write",
+    "requires": [
+      "security_input_014"
+    ],
+    "produces": [
+      "security_output_014"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "security_input_014": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "security_input_014"
+      ]
+    }
+  },
+  {
+    "name": "database_delete_distractor_015",
+    "description": "Delete synthetic database records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "database",
+    "action_type": "delete",
+    "requires": [
+      "database_input_015"
+    ],
+    "produces": [
+      "database_output_015"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "database_input_015": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_input_015"
+      ]
+    }
+  },
+  {
+    "name": "crm_summarize_distractor_016",
+    "description": "Summarize synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "summarize",
+    "requires": [
+      "crm_input_016"
+    ],
+    "produces": [
+      "crm_output_016"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_016": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_016"
+      ]
+    }
+  },
+  {
+    "name": "analytics_extract_distractor_017",
+    "description": "Extract synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "extract",
+    "requires": [
+      "analytics_input_017"
+    ],
+    "produces": [
+      "analytics_output_017"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_017": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_017"
+      ]
+    }
+  },
+  {
+    "name": "payments_search_distractor_018",
+    "description": "Search synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "search",
+    "requires": [
+      "payments_input_018"
+    ],
+    "produces": [
+      "payments_output_018"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_018": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_018"
+      ]
+    }
+  },
+  {
+    "name": "maps_read_distractor_019",
+    "description": "Read synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "read",
+    "requires": [
+      "maps_input_019"
+    ],
+    "produces": [
+      "maps_output_019"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_019": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_019"
+      ]
+    }
+  },
+  {
+    "name": "shopping_write_distractor_020",
+    "description": "Write synthetic shopping records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "shopping",
+    "action_type": "write",
+    "requires": [
+      "shopping_input_020"
+    ],
+    "produces": [
+      "shopping_output_020"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "shopping_input_020": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shopping_input_020"
+      ]
+    }
+  },
+  {
+    "name": "support_delete_distractor_021",
+    "description": "Delete synthetic support records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "support",
+    "action_type": "delete",
+    "requires": [
+      "support_input_021"
+    ],
+    "produces": [
+      "support_output_021"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "support_input_021": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "support_input_021"
+      ]
+    }
+  },
+  {
+    "name": "security_summarize_distractor_022",
+    "description": "Summarize synthetic security records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "security",
+    "action_type": "summarize",
+    "requires": [
+      "security_input_022"
+    ],
+    "produces": [
+      "security_output_022"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "security_input_022": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "security_input_022"
+      ]
+    }
+  },
+  {
+    "name": "database_extract_distractor_023",
+    "description": "Extract synthetic database records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "database",
+    "action_type": "extract",
+    "requires": [
+      "database_input_023"
+    ],
+    "produces": [
+      "database_output_023"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "database_input_023": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_input_023"
+      ]
+    }
+  },
+  {
+    "name": "crm_search_distractor_024",
+    "description": "Search synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "search",
+    "requires": [
+      "crm_input_024"
+    ],
+    "produces": [
+      "crm_output_024"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_024": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_024"
+      ]
+    }
+  },
+  {
+    "name": "analytics_read_distractor_025",
+    "description": "Read synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "read",
+    "requires": [
+      "analytics_input_025"
+    ],
+    "produces": [
+      "analytics_output_025"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_025": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_025"
+      ]
+    }
+  },
+  {
+    "name": "payments_write_distractor_026",
+    "description": "Write synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "write",
+    "requires": [
+      "payments_input_026"
+    ],
+    "produces": [
+      "payments_output_026"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_026": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_026"
+      ]
+    }
+  },
+  {
+    "name": "maps_delete_distractor_027",
+    "description": "Delete synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "delete",
+    "requires": [
+      "maps_input_027"
+    ],
+    "produces": [
+      "maps_output_027"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_027": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_027"
+      ]
+    }
+  },
+  {
+    "name": "shopping_summarize_distractor_028",
+    "description": "Summarize synthetic shopping records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "shopping",
+    "action_type": "summarize",
+    "requires": [
+      "shopping_input_028"
+    ],
+    "produces": [
+      "shopping_output_028"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "shopping_input_028": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shopping_input_028"
+      ]
+    }
+  },
+  {
+    "name": "support_extract_distractor_029",
+    "description": "Extract synthetic support records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "support",
+    "action_type": "extract",
+    "requires": [
+      "support_input_029"
+    ],
+    "produces": [
+      "support_output_029"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "support_input_029": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "support_input_029"
+      ]
+    }
+  },
+  {
+    "name": "security_search_distractor_030",
+    "description": "Search synthetic security records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "security",
+    "action_type": "search",
+    "requires": [
+      "security_input_030"
+    ],
+    "produces": [
+      "security_output_030"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "security_input_030": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "security_input_030"
+      ]
+    }
+  },
+  {
+    "name": "database_read_distractor_031",
+    "description": "Read synthetic database records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "database",
+    "action_type": "read",
+    "requires": [
+      "database_input_031"
+    ],
+    "produces": [
+      "database_output_031"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "database_input_031": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_input_031"
+      ]
+    }
+  },
+  {
+    "name": "crm_write_distractor_032",
+    "description": "Write synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "write",
+    "requires": [
+      "crm_input_032"
+    ],
+    "produces": [
+      "crm_output_032"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_032": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_032"
+      ]
+    }
+  },
+  {
+    "name": "analytics_delete_distractor_033",
+    "description": "Delete synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "delete",
+    "requires": [
+      "analytics_input_033"
+    ],
+    "produces": [
+      "analytics_output_033"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_033": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_033"
+      ]
+    }
+  },
+  {
+    "name": "payments_summarize_distractor_034",
+    "description": "Summarize synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "summarize",
+    "requires": [
+      "payments_input_034"
+    ],
+    "produces": [
+      "payments_output_034"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_034": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_034"
+      ]
+    }
+  },
+  {
+    "name": "maps_extract_distractor_035",
+    "description": "Extract synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "extract",
+    "requires": [
+      "maps_input_035"
+    ],
+    "produces": [
+      "maps_output_035"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_035": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_035"
+      ]
+    }
+  },
+  {
+    "name": "shopping_search_distractor_036",
+    "description": "Search synthetic shopping records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "shopping",
+    "action_type": "search",
+    "requires": [
+      "shopping_input_036"
+    ],
+    "produces": [
+      "shopping_output_036"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "shopping_input_036": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shopping_input_036"
+      ]
+    }
+  },
+  {
+    "name": "support_read_distractor_037",
+    "description": "Read synthetic support records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "support",
+    "action_type": "read",
+    "requires": [
+      "support_input_037"
+    ],
+    "produces": [
+      "support_output_037"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "support_input_037": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "support_input_037"
+      ]
+    }
+  },
+  {
+    "name": "security_write_distractor_038",
+    "description": "Write synthetic security records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "security",
+    "action_type": "write",
+    "requires": [
+      "security_input_038"
+    ],
+    "produces": [
+      "security_output_038"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "security_input_038": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "security_input_038"
+      ]
+    }
+  },
+  {
+    "name": "database_delete_distractor_039",
+    "description": "Delete synthetic database records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "database",
+    "action_type": "delete",
+    "requires": [
+      "database_input_039"
+    ],
+    "produces": [
+      "database_output_039"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "database_input_039": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_input_039"
+      ]
+    }
+  },
+  {
+    "name": "crm_summarize_distractor_040",
+    "description": "Summarize synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "summarize",
+    "requires": [
+      "crm_input_040"
+    ],
+    "produces": [
+      "crm_output_040"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_040": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_040"
+      ]
+    }
+  },
+  {
+    "name": "analytics_extract_distractor_041",
+    "description": "Extract synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "extract",
+    "requires": [
+      "analytics_input_041"
+    ],
+    "produces": [
+      "analytics_output_041"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_041": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_041"
+      ]
+    }
+  },
+  {
+    "name": "payments_search_distractor_042",
+    "description": "Search synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "search",
+    "requires": [
+      "payments_input_042"
+    ],
+    "produces": [
+      "payments_output_042"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_042": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_042"
+      ]
+    }
+  },
+  {
+    "name": "maps_read_distractor_043",
+    "description": "Read synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "read",
+    "requires": [
+      "maps_input_043"
+    ],
+    "produces": [
+      "maps_output_043"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_043": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_043"
+      ]
+    }
+  },
+  {
+    "name": "shopping_write_distractor_044",
+    "description": "Write synthetic shopping records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "shopping",
+    "action_type": "write",
+    "requires": [
+      "shopping_input_044"
+    ],
+    "produces": [
+      "shopping_output_044"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "shopping_input_044": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "shopping_input_044"
+      ]
+    }
+  },
+  {
+    "name": "support_delete_distractor_045",
+    "description": "Delete synthetic support records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "support",
+    "action_type": "delete",
+    "requires": [
+      "support_input_045"
+    ],
+    "produces": [
+      "support_output_045"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "support_input_045": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "support_input_045"
+      ]
+    }
+  },
+  {
+    "name": "security_summarize_distractor_046",
+    "description": "Summarize synthetic security records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "security",
+    "action_type": "summarize",
+    "requires": [
+      "security_input_046"
+    ],
+    "produces": [
+      "security_output_046"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "security_input_046": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "security_input_046"
+      ]
+    }
+  },
+  {
+    "name": "database_extract_distractor_047",
+    "description": "Extract synthetic database records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "database",
+    "action_type": "extract",
+    "requires": [
+      "database_input_047"
+    ],
+    "produces": [
+      "database_output_047"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "database_input_047": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "database_input_047"
+      ]
+    }
+  },
+  {
+    "name": "crm_search_distractor_048",
+    "description": "Search synthetic crm records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "crm",
+    "action_type": "search",
+    "requires": [
+      "crm_input_048"
+    ],
+    "produces": [
+      "crm_output_048"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "crm_input_048": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "crm_input_048"
+      ]
+    }
+  },
+  {
+    "name": "analytics_read_distractor_049",
+    "description": "Read synthetic analytics records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "analytics",
+    "action_type": "read",
+    "requires": [
+      "analytics_input_049"
+    ],
+    "produces": [
+      "analytics_output_049"
+    ],
+    "risk": "low",
+    "cost": 1,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "analytics_input_049": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "analytics_input_049"
+      ]
+    }
+  },
+  {
+    "name": "payments_write_distractor_050",
+    "description": "Write synthetic payments records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "payments",
+    "action_type": "write",
+    "requires": [
+      "payments_input_050"
+    ],
+    "produces": [
+      "payments_output_050"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "payments_input_050": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "payments_input_050"
+      ]
+    }
+  },
+  {
+    "name": "maps_delete_distractor_051",
+    "description": "Delete synthetic maps records. This is a distractor tool for tool-selection stress testing.",
+    "domain": "maps",
+    "action_type": "delete",
+    "requires": [
+      "maps_input_051"
+    ],
+    "produces": [
+      "maps_output_051"
+    ],
+    "risk": "high",
+    "cost": 3,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "maps_input_051": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "maps_input_051"
+      ]
+    }
+  }
+]
